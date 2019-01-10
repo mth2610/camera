@@ -668,6 +668,10 @@ public class CameraPlugin implements MethodCallHandler {
     }
 
     private void stopVideoRecording(@NonNull final Result result) {
+      if(surfaces == null || imageReader == null){
+        return;
+      }
+
       if (!recordingVideo) {
         result.success(null);
         return;
