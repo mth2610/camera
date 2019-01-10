@@ -660,10 +660,6 @@ public class CameraPlugin implements MethodCallHandler {
 
         surfaces.add(previewSurface);
 
-	if(surfaces == null || imageReader == null){
-		return;
-	      }
-
         captureRequestBuilder.addTarget(previewSurface);
 
         Surface recorderSurface = mediaRecorder.getSurface();
@@ -733,6 +729,9 @@ public class CameraPlugin implements MethodCallHandler {
       surfaces.add(previewSurface);
       captureRequestBuilder.addTarget(previewSurface);
 
+      if(surfaces == null || pictureImageReader == null){
+		return;
+	     }
       surfaces.add(pictureImageReader.getSurface());
 
       cameraDevice.createCaptureSession(
