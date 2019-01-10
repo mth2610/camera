@@ -657,10 +657,13 @@ public class CameraPlugin implements MethodCallHandler {
         List<Surface> surfaces = new ArrayList<>();
 
         Surface previewSurface = new Surface(surfaceTexture);
+
+        surfaces.add(previewSurface);
+
 	if(surfaces == null || imageReader == null){
 		return;
 	      }
-        surfaces.add(previewSurface);
+
         captureRequestBuilder.addTarget(previewSurface);
 
         Surface recorderSurface = mediaRecorder.getSurface();
